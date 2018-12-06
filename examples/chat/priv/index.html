@@ -19,7 +19,8 @@
         };
 
         function connect() {
-        wsHost = "ws://" + window.location.host + "/websocket";
+        var username = jQuery("#username").val();
+        wsHost = "ws://" + window.location.host + "/websocket/" + username;
         websocket = new WebSocket(wsHost);
         websocket.onopen = function(evt) { onOpen(evt) }; 
         websocket.onclose = function(evt) { onClose(evt) }; 
@@ -28,6 +29,7 @@
       }; 
 
       function onOpen(evt) { 
+        jQuery("#usernameContainer").hide();
         jQuery('#roomContainer').fadeIn('slow');
       };  
 
@@ -73,7 +75,10 @@
   </head>
   <body>
     <div id="alertContainer"></div>
-    <input id="connectButton" type="button" value="Join the Chat Room!" onclick="connect();"/>
+    <div id='usernameContainer'>
+      Enter Your Name: <input id="username" type="text"/><br>
+      <input id="connectButton" type="button" value="Join the Chat Room!" onclick="connect();"/>
+    </div>
 
     <div id="roomContainer">
       <div id="chatContainer"></div>
