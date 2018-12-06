@@ -29,7 +29,6 @@ websocket_handle(_Data, Req, State) ->
   {ok, Req, State}.
 
 websocket_info({message_published, {Sender, Msg}}, Req, State) ->
-  {Username, _} = cowboy_req:binding(username, Req),
   {reply, {text, jiffy:encode({[{sender, Sender}, {msg, Msg}]})}, Req, State};
 websocket_info(_Info, Req, State) ->
   {ok, Req, State}.

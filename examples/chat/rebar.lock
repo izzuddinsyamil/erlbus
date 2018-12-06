@@ -17,7 +17,7 @@
   0},
  {<<"proper">>,
   {git,"git://github.com/manopapad/proper.git",
-       {ref,"a24bc8922b3c0115d8e64bcd9ee6f220623ce21f"}},
+       {ref,"7b67fbcc7d80fc50f1101b8d12315165a366b2b0"}},
   1},
  {<<"ranch">>,
   {git,"https://github.com/ninenines/ranch.git",
